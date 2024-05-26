@@ -377,6 +377,7 @@ public class Juego extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NumeroAparicionesActionPerformed
 
+    
     private void ArbolitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArbolitoActionPerformed
         emoji = "🎄";
         completarDatos(emoji);
@@ -452,25 +453,41 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JTextArea matriz2;
     // End of variables declaration//GEN-END:variables
 
+    
     private void completarDatos(String emoji) {
+        //pasar el numero ingresado de tipo texto a tipo numero
         int cantidad = Integer.parseInt(NumeroApariciones.getText());
+        
+        //valorar si el numero ingresado es mayor que 0 y menor que 16
         if (cantidad >= 0 && cantidad <= 16) {
-
+            //llamar la matriz generada
             matriz = control.generarMatriz();
+            
+            //mostrar el valor de apariciones que cree aparecer en la matriz como un numero
             cantEncontrados = control.determinarCantidadEmoji(emoji, cantidad, matriz);
+            
+            //Mostrar el numero de encontrados en pantalla
             Encontrados.setText(String.valueOf(cantEncontrados));
+            
+            //mostrar el emoji elegido
             EmojiElegido.setText(emoji);
+            
+            //mostrar la cantidad de apariciones del emoji en la matriz
             Cantidad.setText(String.valueOf(cantidad));
+            
+            //si el numero de apariciones del emoji elegido encontrados es igual al numero de generados
             if (cantEncontrados == cantidad) {
                 Resultado.setText("ACERTO");
             } else {
                 Resultado.setText("FALLO");
             }
+            //llamar matriz para mostrarla con el metodo
             dibujarMatriz(matriz);
         } else {
         }
     }
 
+    //metodo para dibujar la matriz en la pantalla
     public void dibujarMatriz(String matriz[][]) {
         for (int f = 0; f < 4; f++) {
             for (int c = 0; c < 4; c++) {

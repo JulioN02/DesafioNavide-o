@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class Controladora {
 
+    //metodo para determinar la cantidad del emoji elegido que aparecen en la matriz 
     public int determinarCantidadEmoji(String emoji, int cantidad, String matriz[][]) {
         int cantidadEncontrada=0;
         for (int f=0;f<4;f++){
@@ -16,6 +17,7 @@ public class Controladora {
         return cantidadEncontrada;
     }
 
+    //generar la matriz con los emojis de manera aleatoria
     public String[][] generarMatriz() {
         Random random = new Random();
         String [] emojis={"🎄","🎅","⭐","🎁"};
